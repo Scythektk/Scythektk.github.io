@@ -8,7 +8,7 @@ body {
     margin-bottom: 0px;
     margin-left: 10%;
     gap: 5px;
-    font-size: 2vw;
+    font-size: 20px;
     color: rgb(20, 71, 94);
 }
 
@@ -33,6 +33,7 @@ body {
     padding-left: 10px;
     padding-bottom: 4vw;
     gap: 5vw;
+    overflow: hidden;
 }
 
 .btn {

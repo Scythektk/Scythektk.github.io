@@ -7,7 +7,7 @@ window.onload = ()=>{
 }
 
 // set timeout so that the function doesn't execute before the page is fully loaded
-// window.onload does not work in this case because it only executes on window load
+// window.onload does not work in this case because it only executes on window load/reload
 setTimeout(()=> { 
     document.querySelector("#file").addEventListener("change", (event) =>{
     const imageDataUrl = URL.createObjectURL(event.target.files[0]);
@@ -35,7 +35,6 @@ setTimeout(()=> {
     });
 }, 2000);
 
-
 function downloadImg(){
     const canvas = document.getElementById("output");
     image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
@@ -52,15 +51,14 @@ function clearCanvas(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     document.getElementById("top-text-box").value = "";
     document.getElementById("bottom-text-box").value = "";
-    document.querySelector(".container").height = "200px";
 }
 
 function updateCanvas(canvas, image, topText, bottomText){
     const ctx = canvas.getContext('2d');
     const width = image.width;
     const height = image.height;
-    const fontSize = (width / 18);
-    const yOffset = height / 25;
+    const fontSize = width / 18;
+    const y = height / 25;
 
     // change canvas background
     canvas.width = width;
@@ -72,16 +70,15 @@ function updateCanvas(canvas, image, topText, bottomText){
     ctx.lineWidth = (fontSize / 8);
     ctx.fillStyle = "white";
     ctx.textAlign = "center";
-    ctx.lineJoin = "round";
     ctx.font = `${fontSize}px montserrat`;
 
     // top text
     ctx.textBaseline = "top";
-    ctx.strokeText(topText, width / 2, yOffset);
-    ctx.fillText(topText, width / 2, yOffset);
+    ctx.strokeText(topText, width / 2, y);
+    ctx.fillText(topText, width / 2, y);
 
     // bottom text
     ctx.textBaseline = "bottom";
-    ctx.strokeText(bottomText, width / 2, height - yOffset);
-    ctx.fillText(bottomText, width / 2, height - yOffset);
+    ctx.strokeText(bottomText, width / 2, height - y);
+    ctx.fillText(bottomText, width / 2, height - y);
 }
