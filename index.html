@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="/images/logoFinal.png" alt="Drake" id="logo">
+        <h2>Meme Generator</h2>
+    </div>
+    <div class="container">
+        <div class="taskbar" id="container-inception-1">
+            <form>
+            <div class="btn" id="input">
+                <input type="file" accept="image/*" id="file"/>
+                <label for="file" id="img-upload">Select Image</label>
+            </div>
+            </form>
+            <div class="btn" id="generate-meme" onclick="downloadImg()">Download Meme</div>
+            <div class="btn" id="remove-image" onclick="clearCanvas()">Reset Image</div>
+        </div>
+        <div id="container-inception-2">
+            <div id="text-box-container">
+                <div>
+                    <label>Top Text:</label>
+                    &nbsp;
+                    <input id="top-text-box" type="text">
+                    <button>Apply</button>
+                </div>
+
+                <div>
+                    <label>Bottom Text:</label>
+                    &nbsp; 
+                    <input id="bottom-text-box" type="text">
+                    <button>Apply</button>
+                </div>
+
+                <div id="canvas-container">
+                    <canvas class="canvas" id="output"></canvas>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
